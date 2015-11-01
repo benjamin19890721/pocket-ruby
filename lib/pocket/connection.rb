@@ -13,6 +13,7 @@ module Pocket
         :ssl => {:verify => false},
         :url => endpoint,
       }
+      byebug
 
       Faraday::Connection.new(options) do |conn|
         conn.use FaradayMiddleware::PocketOAuth, consumer_key, access_token
