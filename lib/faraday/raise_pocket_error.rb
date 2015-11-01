@@ -19,7 +19,6 @@ module Faraday
       when 404
         raise Faraday::Error::ResourceNotFound, response_values(env)
       when 400...403
-        byebug
         raise Pocket::Error, env[:response_headers]['X-Error']
       when ClientErrorStatuses
         raise Faraday::Error::ClientError, response_values(env)
